@@ -8,3 +8,5 @@ libraries:
 - react-rating-stars-component
 - react-router-dom
 - react-player
+
+API: moviedb
