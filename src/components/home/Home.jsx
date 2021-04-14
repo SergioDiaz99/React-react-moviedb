@@ -3,7 +3,7 @@ import { fetchGenre, fetchMovieByGenre, fetchMovies, fetchPersons, fetchTopRated
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 //import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-//import { RBCarousel } from "react-bootstrap-carousel";
+//import  ReactBootstrapCarousel  from "react-bootstrap-carousel";
 import {Link} from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component'
 
@@ -33,13 +33,13 @@ export function Home() {
   const movies = nowPlaying.slice(0, 10).map((item, index) => {
     return (
       <div style={{ height: 500, width: "100%" }} key={index}>
-        <div className="carousel-center">
+        <div className="carousel-center" style={{width: "100%"}}>
           <img style={{ height: 600 }} src={item.backPoster} alt={item.title} />
         </div>
         <div className="carousel-center">
           <i
-            className="far fa-play-circle"
-            style={{ fontSize: 95, color: "#f4c10f" }}
+              className="far fa-play-circle"
+              style={{ fontSize: 95, color: "#f4c10f", cursor: "pointer" }}
           ></i>
         </div>
         <div
@@ -127,17 +127,27 @@ export function Home() {
       </div>
     );
   });
+  /*        pauseOnVisibility={true}
+            slidesshowSpeed={4000}
+            version={4}
+            indicators={false}
+            
+            infiniteLoop={true}
+            autoFocus={true}
+            emulateTouch={true}
+            pauseOnVisibility={true}
+            interval={4000}*/
 
   return (
     <div className="container">
       <div className="row mt-2">
         <div className="col">
           <Carousel
-            autoplay={true}
-            pauseOnVisibility={true}
-            slidesshowSpeed={5000}
-            version={4}
-            indicators={false}
+            autoPlay={true}
+            infiniteLoop={true}
+            autoFocus={true}
+            emulateTouch={true}
+            interval={3000}
           >
             {movies}
           </Carousel>

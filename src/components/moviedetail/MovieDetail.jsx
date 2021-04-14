@@ -11,7 +11,7 @@ export function MovieDetail({ match }) {
   let params = match.params;
   let genres = [];
   const [detail, setDetail] = useState([]);
-  const [isOpen, setIsOpen] = useState([false]);
+  const [isOpen, setIsOpen] = useState(false);
   const [video, setVideo] = useState([]);
   const [casts, setCasts] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -31,7 +31,7 @@ export function MovieDetail({ match }) {
 
 
   const MoviePlayerModal = (props) => {
-    const youtubeUrl = "http://www.youtube.com/watch?v=";
+    const youtubeUrl = "https://www.youtube.com/watch?v=";
     return (
       <Modal
         {...props}
@@ -42,7 +42,7 @@ export function MovieDetail({ match }) {
         <Modal.Header closeButton>
           <Modal.Title
             id="contained-modal-title-vcenter"
-            style={{ color: "#000000", fonWeight: "bolder" }}
+            style={{ color: "#000000", fontWeight: "bolder" }}
           >
             {detail.title}
           </Modal.Title>
@@ -51,9 +51,8 @@ export function MovieDetail({ match }) {
           <ReactPlayer
             className="container-fluid"
             url={youtubeUrl + video.key}
-            volume="0.1"
-            width="100%"
             playing
+            width="100%"
           ></ReactPlayer>
         </Modal.Body>
       </Modal>
@@ -94,7 +93,7 @@ export function MovieDetail({ match }) {
 
   const similarMovieList = similarMovies.slice(0,4).map((item,index)=>{
       return(
-        <div className="col-md-3 col-sm-6" key={index}>
+      <div className="col-md-3 col-sm-6" key={index}>
         <div className="card">
           <Link to={`/movie/${item.id}`}>
             <img className="img-fluid" src={item.poster} alt={item.title}></img>
@@ -113,7 +112,6 @@ export function MovieDetail({ match }) {
       </div>
       )
   })
-console.log(detail);
   return (
     <div className="container">
       <div className="row mt-2">
@@ -212,7 +210,7 @@ console.log(detail);
       </div>
 
       <div className="row mt-3">
-          {similarMovieList}
+        {similarMovieList}
       </div>
 
       <hr className="mt-5" style={{borderTop: "1px solid #5a606b"}}></hr>
