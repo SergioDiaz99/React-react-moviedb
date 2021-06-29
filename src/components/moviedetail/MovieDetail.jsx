@@ -6,6 +6,7 @@ import { Modal } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import ReactStars from 'react-rating-stars-component'
 import {Link} from 'react-router-dom';
+import ScrollToTop from "../../utils/ScrollToTop";
 
 export function MovieDetail({ match }) {
   let params = match.params;
@@ -28,7 +29,6 @@ export function MovieDetail({ match }) {
   }, [params.id]);
 
   genres = detail.genres;
-
 
   const MoviePlayerModal = (props) => {
     const youtubeUrl = "https://www.youtube.com/watch?v=";
@@ -114,6 +114,7 @@ export function MovieDetail({ match }) {
   })
   return (
     <div className="container">
+      
       <div className="row mt-2">
         <MoviePlayerModal
           show={isOpen}
