@@ -6,6 +6,7 @@ export const documentScrollTop = () => {
 };
 
 function ScrollToTop() {
+  console.log('document scrolled to top');
   useEffect(() => {
     documentScrollTop();
   }, []);
